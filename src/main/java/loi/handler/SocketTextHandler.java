@@ -1,4 +1,4 @@
-package loi.socket;
+package loi.handler;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,12 +31,12 @@ public class SocketTextHandler extends TextWebSocketHandler {
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		super.handleTextMessage(session, message);
+		String payload = message.getPayload();
+		JSONObject jsonObject = new JSONObject(payload);
+
 		sessions.forEach(webSocketSession -> {
 			try {
-				String payload = message.getPayload();
-				JSONObject jsonObject = new JSONObject(payload);
 				webSocketSession.sendMessage(new TextMessage("Hi " + jsonObject.get("user") + " how may we help you?"));
-
 			} catch (IOException e) {
 			}
 		});

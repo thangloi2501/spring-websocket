@@ -1,6 +1,6 @@
 package loi.config;
 
-import loi.socket.SocketTextHandler;
+import loi.handler.SocketTextHandler;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
